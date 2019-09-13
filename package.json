@@ -1,0 +1,20 @@
+{
+  "name": "matchmaker",
+  "version": "1.0.0",
+  "description": "Node.js, Express based match maker application",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/unnikrishnan-r/matchmaker.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/unnikrishnan-r/matchmaker/issues"
+  },
+  "homepage": "https://github.com/unnikrishnan-r/matchmaker#readme"
+}
