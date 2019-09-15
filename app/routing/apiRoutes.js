@@ -7,6 +7,7 @@ var friendsData = require("./../data/friends.js")
 // Create all our routes and set up logic within those routes where required.
 apirouter.get("/api/friends", function (req, res) {
     console.log("Get Friends API");
+    res.send(friendsData.friendsData)
 });
 
 apirouter.post("/api/friends", function (req, res) {
