@@ -11,10 +11,38 @@ apirouter.get("/api/friends", function (req, res) {
 
 apirouter.post("/api/friends", function (req, res) {
     console.log("Post Friends API");
-    console.log(req.body)
-    console.log(friendsData.friendsData[0].scores);
+    var bestMatch = findClosestMatch(req.body, friendsData.friendsData);
+    friendsData.friendsData.push(req.body);
+    res.send(bestMatch);
 });
 
+function findClosestMatch(newPerson, currentPersonList) {
+    var currentPointDiff = 50;
+    var closestMatch = {};
+    var totalScoreOfNewPerson = calculateScore(newPerson.scores);
+    currentPersonList.forEach(person => {
+        var totalScoreOfFriend = calculateScore(person.scores);
+        console.log(`${person.name} has ${totalScoreOfFriend} ==> ${newPerson.name} has ${totalScoreOfNewPerson}`);
+        var calculatedPointDiff = Math.abs(totalScoreOfNewPerson - totalScoreOfFriend);
+
+        if (calculatedPointDiff < currentPointDiff) {
+            currentPointDiff = calculatedPointDiff;
+            closestMatch = person;
+        }
+    });
+    return {
+        name: closestMatch.name,
+        photo: closestMatch.photo
+    };
+};
+
+function calculateScore(scoreArray) {
+    var total = 0;
+    scoreArray.forEach(score => {
+        total += parseInt(score);
+    });
+    return total;
+};
 
 
 // Export routes for server.js to use.
