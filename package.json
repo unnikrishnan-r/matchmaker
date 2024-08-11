@@ -1,6 +1,10 @@
 {
   "name": "matchmaker",
   "version": "1.0.0",
+  "engines": {
+    "node": "16.x",
+    "npm": "8.x"
+  },
   "description": "Node.js, Express based match maker application",
   "main": "index.js",
   "scripts": {
